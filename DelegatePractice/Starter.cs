@@ -5,11 +5,13 @@
     {
         public static void Run()
         {
+            ColoredConsoleWriteLine("\t\t\t\t\t\tDelegate Practice\n\n", ConsoleColor.Green);
+
             int num1 = 24;
             int num2 = 2;
 
             Console.WriteLine($"Num1: {num1}\nNum2: {num2}\n");
-            ConsoleColored("Subsribing to SumEvent with Sum() twice\n\ninvoking GetSumResults()\n", ConsoleColor.Green);
+            ColoredConsoleWriteLine("Subsribing to SumEvent with Sum() twice\n\ninvoking GetSumResults()\n", ConsoleColor.Green);
 
             var operation = new Operation();
             operation.SumEvent += Sum;
@@ -25,7 +27,7 @@
             operation.SumEvent -= Sum;
             operation.SumEvent -= Sum;
 
-            ConsoleColored("Unsubsribing from SumEvent with Sum() twice\n\ninvoking GetSumResults()\n", ConsoleColor.Red);
+            ColoredConsoleWriteLine("Unsubsribing from SumEvent with Sum() twice\n\ninvoking GetSumResults()\n", ConsoleColor.Red);
 
             res = GetSumResults(operation, num1, num2);
 
@@ -53,7 +55,7 @@
             return res;
         }
 
-        private static void ConsoleColored(string data, ConsoleColor color)
+        private static void ColoredConsoleWriteLine(string data, ConsoleColor color)
         {
             Console.ForegroundColor = color;
             Console.WriteLine(data);
